@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador de personajes de MLP - Ruleta Mágica</title>
+    <!-- Fuente bonita y lúdica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- PANTALLA DE BIENVENIDA -->
+        <section id="welcome-screen" class="screen active">
+            <div class="welcome-card">
+                <h1>Ruleta Mágica de personaje de My Little Pony</h1>
+                <p>Crea tu propio personaje original de <strong>My Little Pony</strong> girando la ruleta para descubrir sus características paso a paso. ¡Al final, podrás escribir su talento especial!</p>
+                <button id="start-btn" class="btn primary-btn" type="button">¡Comenzar Creación!</button>
+            </div>
+        </section>
+
+        <!-- PANTALLA PRINCIPAL DEL GENERADOR -->
+        <section id="creator-screen" class="screen">
+            <header class="app-header">
+                <h2>Creador de personajes de MLP</h2>
+            </header>
+            
+            <div class="creator-layout">
+                <!-- PANEL IZQUIERDO: RULETA -->
+                <div class="roulette-panel">
+                    <div class="phase-indicator">
+                        <span id="current-phase-num">Paso 1 de 8</span>
+                        <h3 id="current-phase-title">Selección de Raza</h3>
+                    </div>
+                    
+                    <div class="wheel-container">
+                        <div class="wheel-pointer">▼</div>
+                        <canvas id="wheel-canvas" width="400" height="400"></canvas>
+                    </div>
+
+                    <div class="controls">
+                        <button id="spin-btn" class="btn spin-btn" type="button">¡Girar Ruleta!</button>
+                    </div>
+                </div>
+
+                <!-- PANEL DERECHO: EL LIBRITO (DIARIO) -->
+                <div class="journal-panel">
+                    <div class="journal-book">
+                        <div class="journal-cover">
+                            <div class="journal-inner">
+                                <div class="journal-header">
+                                    <input type="text" id="pony-name" placeholder="Nombre del personaje..." class="pony-name-input">
+                                </div>
+                                
+                                <div class="journal-page-content">
+                                    <ul class="attributes-list">
+                                        <li id="attr-raza" class="empty">
+                                            <span class="attr-label">Raza:</span>
+                                            <span class="attr-value">¿?</span>
+                                        </li>
+                                        <li id="attr-genero" class="empty">
+                                            <span class="attr-label">Género:</span>
+                                            <span class="attr-value">¿?</span>
+                                        </li>
+                                        <li id="attr-cabello-tipo" class="empty">
+                                            <span class="attr-label">Tipo de Melena:</span>
+                                            <span class="attr-value">¿?</span>
+                                        </li>
+                                        <li id="attr-cabello-largo" class="empty">
+                                            <span class="attr-label">Largo de Melena:</span>
+                                            <span class="attr-value">¿?</span>
+                                        </li>
+                                        <li id="attr-cuerpo-tipo" class="empty">
+                                            <span class="attr-label">Tipo de cuerpo:</span>
+                                            <span class="attr-value">¿?</span>
+                                        </li>
+                                        <li id="attr-cuerpo-color" class="empty">
+                                            <span class="attr-label">Color de cuerpo:</span>
+                                            <span class="attr-value">¿?</span>
+                                        </li>
+                                        <li id="attr-cabello-color" class="empty">
+                                            <span class="attr-label">Color de Melena:</span>
+                                            <span class="attr-value">¿?</span>
+                                        </li>
+                                        <li id="attr-ojo-color" class="empty">
+                                            <span class="attr-label">Color de ojos:</span>
+                                            <span class="attr-value">¿?</span>
+                                        </li>
+                                        <li id="attr-personalidad" class="empty">
+                                            <span class="attr-label">Personalidad:</span>
+                                            <span class="attr-value">¿?</span>
+                                        </li>
+                                    </ul>
+
+                                    <div class="talent-section">
+                                        <label for="pony-talent">Talento especial:</label>
+                                        <textarea id="pony-talent" placeholder="Escribe aquí el talento especial de tu personaje..." disabled></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="journal-footer">
+                                    <button id="reset-btn" class="btn secondary-btn is-hidden" type="button">Crear otro personaje</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sonidos simples generados por Web Audio API para no necesitar archivos externos -->
+    <script src="app.js"></script>
+</body>
+</html>
